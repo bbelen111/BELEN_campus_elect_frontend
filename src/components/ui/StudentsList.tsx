@@ -1,11 +1,27 @@
-import React from 'react';
+import React from "react";
 
-const StudentsList = async () => {
-
-    const students = await fetch('https://crispy-couscous-x5vq4w74j7593g95-3001.app.github.dev/users/students');
-    const data = await students.json();
-
-    return <div>{JSON.stringify(data)}</div>;
+export type StudentType = {
+    studentId: string;
+    department: string;
+    name: string;
+    email: string;
+    role: "STUDENT" | "ADMIN";
 }
 
-export default StudentsList
+const StudentsList = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/users/students`
+  );
+
+  const students: StudentType[] = await res.json();
+
+  return (
+    <div>
+        {students.map((student, index) => {
+            return <p key={'${student}_${index}'}>{student.name}</p>;
+        })}
+    </div>
+    );
+};
+
+export default StudentsList;
