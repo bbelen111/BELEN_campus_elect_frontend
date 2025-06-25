@@ -17,8 +17,8 @@ const StudentsList = async () => {
 
   return (
     <div>
-        {students.map((student, index) => {
-            return <p key={'${student}_${index}'}>{student.name}</p>;
+        {students.map((student) => {
+            return <p key={'${student}'}>{student.name}</p>;
         })}
     </div>
     );
