@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Example Next.js App",
+  title: "BELEN_Example Next.js frontend app",
   description: "A simple example app using Next.js",
 };
 
